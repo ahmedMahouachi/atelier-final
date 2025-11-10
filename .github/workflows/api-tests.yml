@@ -28,3 +28,8 @@ jobs:
 
       - name: installation de Newman
         run: npm install -g newman newman-reporter-htmlextra
+
+      - name: lancer newman
+        run: |
+          newman run "./postman/AtelierFinal.postman_collection.json" \
+          -e "./postman/atelierFinal.postman_environment.json"
