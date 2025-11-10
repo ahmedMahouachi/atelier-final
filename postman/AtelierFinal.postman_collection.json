@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "149e9494-9b87-46f3-8d2b-2edcfae0615a",
+		"name": "AtelierFinal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24869910"
+	},
+	"item": [
+		{
+			"name": "POST creer un prduit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const yanis = pm.response.json();\r",
+							"\r",
+							"\r",
+							"pm.environment.set(\"produit_id\", yanis.produit.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"i phone 17\",\r\n    \"description\": \"tres cher\",\r\n    \"price\": 2500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/creer",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"creer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET liste des produits",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/produits",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"produits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET produit by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/produitbyid/{{produit_id}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"produitbyid",
+						"{{produit_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT modifier produit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"1\",\r\n    \"description\": \"qualite d'image\",\r\n    \"price\": 166\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/modif/{{produit_id}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"modif",
+						"{{produit_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE supprimer prooduit",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/deleteproduit/{{produit_id}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"deleteproduit",
+						"{{produit_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
