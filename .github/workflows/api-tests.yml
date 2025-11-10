@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: install libraries
-        uses: npm install
+        run: npm install
 
       - name: lancer le backend
         run: | 
